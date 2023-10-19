@@ -1,0 +1,24 @@
+{
+    "name": "sm9sh/mono-acquiring",
+    "description": "Simplest library for Monobank Acquiring to get payments. Based on REST API (v2304) docs located at https://api.monobank.ua/docs/acquiring.html",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "sm9sh",
+            "email": "sm9sh@i.ua"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MonoAcquiring\\": "src/"
+        }
+    }
+}
