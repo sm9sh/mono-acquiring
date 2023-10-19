@@ -1,4 +1,4 @@
-# mono-acquiring
+# php-mono-acquiring
 ## Максимально проста бібліотека для еквайрінгу [Monobank](https://api.monobank.ua/docs/acquiring.html) без зайвих залежностей.
 Документація по REST API [тут](https://api.monobank.ua/docs/acquiring.html)
 
