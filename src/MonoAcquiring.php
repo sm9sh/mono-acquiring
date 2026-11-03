@@ -12,7 +12,7 @@ class MonoAcquiring
     /**
      * @param string|null $token Токен з особистого кабінету https://fop.monobank.ua/ або тестовий токен з https://api.monobank.ua/
      */
-    public function __construct(string $token = null)
+    public function __construct(?string $token = null)
     {
         $this->token = $token ?? $_ENV['MONOBANK_TOKEN'] ?? null;
     }
@@ -182,7 +182,7 @@ class MonoAcquiring
      * @throws \Exception
      * @link https://api.monobank.ua/docs/acquiring.html#/paths/~1api~1merchant~1invoice~1finalize/post
      */
-    public function finalizePayment(string $invoice_id, int $amount = null): array
+    public function finalizePayment(string $invoice_id, ?int $amount = null): array
     {
         self::makeSureInvoiceNotEmpty($invoice_id);
         $options['invoiceId'] = $invoice_id;
@@ -214,7 +214,7 @@ class MonoAcquiring
      * @throws \Exception
      * @link https://api.monobank.ua/docs/acquiring.html#/paths/~1api~1merchant~1statement/get
      */
-    public function getPaymentsList(int $timestamp_from, int $timestamp_to = null): array
+    public function getPaymentsList(int $timestamp_from, ?int $timestamp_to = null): array
     {
         $query = "from=$timestamp_from" . ($timestamp_to ? "&to=$timestamp_to" : '');
 
@@ -230,7 +230,7 @@ class MonoAcquiring
      * @return bool
      * @throws \Exception
      */
-    public function verifyWebhook(string $content = null, string $public_key_base64 = null, string $xsign_base64 = null): bool
+    public function verifyWebhook(?string $content = null, ?string $public_key_base64 = null, ?string $xsign_base64 = null): bool
     {
         $public_key_base64 = $public_key_base64 ?? $this->getPublicKey();
         if(empty($public_key_base64)) {

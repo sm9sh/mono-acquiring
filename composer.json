@@ -20,5 +20,8 @@
         "psr-4": {
             "MonoAcquiring\\": "src/"
         }
+    },
+    "scripts": {
+        "test": "@php tests/compatibility.php"
     }
 }
